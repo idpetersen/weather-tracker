@@ -1,103 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href = "./assets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Weather Forecast!</h1>
-          <p class="lead">Enter a name of a city in the input bar and click search</p>
+            <h1 class="display-4">Weather Forecast!</h1>
+            <p class="lead">Enter a name of a city in the input bar and click search</p>
         </div>
-      </div>
+    </div>
     <div class="row">
         <div class="col-1"></div>
         <div class="col-3">
-          <h1>Search for a City:</h1>
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Clinton"
-              id="citySearch"
-              aria-label="city"
-              aria-describedby="search"/>
-            <div class="input-group-append">
-              <button
-                class="btn btn-outline-secondary search-btn"
-                type="button">
-                Search
-              </button>
+            <h1>Search for a City:</h1>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Clinton" id="citySearch" aria-label="city"
+                    aria-describedby="search" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary search-btn" type="button">
+                        Search
+                    </button>
+                </div>
             </div>
-          </div>
-          <button class="btn btn-outline-secondary clear-btn" type="button">
-            Clear Previous Search
-          </button>
-          <div id="previousSearch"></div>
-    </div>
-    <div class="card hidden" id = "weather-card" style="min-width: 60rem;">
-        <div class="card-body">
-          <h5 class="card-title city-name"></h5>
-          <div class = "icon-container">
-              <img id="weather-icon" src= "" alt="wx icon">
-          </div>
+            <button class="btn btn-outline-secondary clear-btn" type="button">
+                Clear Previous Search
+            </button>
+            <div id="previousSearch"></div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item temp"></li>
-          <li class="list-group-item high-temp"></li>
-          <li class="list-group-item low-temp"></li>
-          <li class="list-group-item wind"></li>
-          <li class="list-group-item humidity"></li>
-          <li class="list-group-item uv-index"></li>
-        </ul>
-    </div>
-    <h1 class = "forecast-header hidden" id = "card-header">Five day forecast:</h1>
-    <div class = "forecast-container">
-        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
+        <div class="card hidden" id="weather-card" style="min-width: 60rem;">
             <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title city-name"></h5>
+                <div class="icon-container">
+                    <img id="weather-icon" src="" alt="wx icon">
+                </div>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item temp"></li>
+                <li class="list-group-item high-temp"></li>
+                <li class="list-group-item low-temp"></li>
+                <li class="list-group-item wind"></li>
+                <li class="list-group-item humidity"></li>
+                <li class="list-group-item uv-index"></li>
+            </ul>
+        </div>
+        <h1 class="forecast-header hidden" id="card-header">Five day forecast:</h1>
+        <div class="forecast-container">
+            <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+                <div class="card-header forecast-date"></div>
+                <div class="card-body">
+                    <div class="icon-container-forcast">
+                        <img id="weather-icon-one" src="" alt="wx icon">
+                    </div>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+                <div class="card-header forecast-date"></div>
+                <div class="card-body">
+                    <div class="icon-container-forcast">
+                        <img id="weather-icon-one" src="" alt="wx icon">
+                    </div>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+                <div class="card-header forecast-date"></div>
+                <div class="card-body">
+                    <div class="icon-container-forcast">
+                        <img id="weather-icon-one" src="" alt="wx icon">
+                    </div>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+                <div class="card-header forecast-date"></div>
+                <div class="card-body">
+                    <div class="icon-container-forcast">
+                        <img id="weather-icon-one" src="" alt="wx icon">
+                    </div>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+                <div class="card-header forecast-date"></div>
+                <div class="card-body">
+                    <div class="icon-container-forcast">
+                        <img id="weather-icon-one" src="" alt="wx icon">
+                    </div>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
             </div>
         </div>
-        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-    </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <script src ="./assets/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+        <script src="./assets/script.js"></script>
 </body>
+
 </html>
