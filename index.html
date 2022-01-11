@@ -9,15 +9,12 @@
     <link rel="stylesheet" href = "./assets/style.css">
 </head>
 <body>
-    <div class="row">
-        <div class="col-2"></div>
-        <div
-          class="col-8 jumbotron text-center font-weight-bold bg-info text-white"
-          id="head">
-          Weather Search
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Weather Forecast!</h1>
+          <p class="lead">Enter a name of a city in the input bar and click search</p>
         </div>
-        <div class="col-2"></div>
-    </div>
+      </div>
     <div class="row">
         <div class="col-1"></div>
         <div class="col-3">
@@ -43,7 +40,7 @@
           </button>
           <div id="previousSearch"></div>
     </div>
-    <div class="card hidden" id = "weather-card" style="width: 18rem;">
+    <div class="card hidden" id = "weather-card" style="min-width: 60rem;">
         <div class="card-body">
           <h5 class="card-title city-name"></h5>
           <div class = "icon-container">
@@ -58,6 +55,44 @@
           <li class="list-group-item humidity"></li>
           <li class="list-group-item uv-index"></li>
         </ul>
+    </div>
+    <h1 class = "forecast-header hidden" id = "card-header">Five day forecast:</h1>
+    <div class = "forecast-container">
+        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-info mb-3 forecast-cards hidden" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
     </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

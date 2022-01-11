@@ -9,8 +9,11 @@ var weatherIcon = document.querySelector("#weather-icon");
 var iconContainer = document.querySelector(".icon-container");
 var highTemp = document.querySelector(".high-temp");
 var lowTemp = document.querySelector(".low-temp");
+var searchInput = document.querySelector('#citySearch');
+var searchInputVal = searchInput.value;
 
 const requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+const fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
 
 searchBtn.addEventListener('click', function(){
 
@@ -35,15 +38,21 @@ searchBtn.addEventListener('click', function(){
         weatherIcon.setAttribute('src', iconUrl);
         iconContainer.append(weatherIcon);
         currentTemp.textContent = "The current temp is: " + data.main.temp + "\u00B0 F";
-
+        highTemp.textContent = "The high for today is: " + data.main.temp_max + "\u00B0 F";
+        lowTemp.textContent = "The low for today is: " + data.main.temp_min + "\u00B0 F";
+        windSpeed.textContent = "The current wind speed is " + data.wind.speed + " MPH from " + data.wind.deg + "\u00B0";
+        humidity.textContent = "The current humidity is " + data.main.humidity + "%";
       });
     var cards = document.getElementById('weather-card');
         cards.classList.remove("hidden");
-
+    var forecastCards = document.querySelectorAll('.forecast-cards');
+        for (var i = 0; i < forecastCards.length; i++){
+            forecastCards[i].classList.remove('hidden')
+        }
+    var cardHeader = document.getElementById('card-header');
+        cardHeader.classList.remove("hidden");
+    
 });
-
-
-
 
 
 
