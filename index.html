@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
@@ -32,12 +31,17 @@
                 </div>
             </div>
             <button class="btn btn-outline-secondary clear-btn" type="button">
-                Clear Previous Search
+                Clear Search
             </button>
             <div id="previousSearch"></div>
-            <ul id="saved-searches">
-
-            </ul>
+            <div id="saved-searches">
+                <button class="btn btn-secondary saved-button">test</button>
+                <button class="btn btn-secondary saved-button">test</button>
+                <button class="btn btn-secondary saved-button">test</button>
+                <button class="btn btn-secondary saved-button">test</button>
+                <button class="btn btn-secondary saved-button">test</button>
+                <button class="btn btn-secondary saved-button">test</button>
+            </div>
         </div>
         <div class="card hidden" id="weather-card" style="min-width: 60rem;">
             <div class="card-body">
@@ -55,9 +59,9 @@
             </ul>
         </div>
         <div id="card-hide" class="container-fluid hidden">
+            <h3 class = "forecast-header">5-day forcast:</h3>
             <div class="row offset-sm-4 forecast-cards">
                 <div class="col-12 offset-sm-2">
-                    <h3 class = "forecast-header">5-day forcast:</h3>
                     <div class="row five-day-cards">
                     </div>
                 </div>

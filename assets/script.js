@@ -57,6 +57,8 @@ $(document).ready(function () {
                 $('.humidity').text('The current humidity is ' + humidity + '%');
                 $('.wind').text('The current wind speed is ' + wind + 'MPH');
                 $('.uv-index').text('The current UV index is ' + uvIndex);
+                //We need this so we can clear all cards before next set is populated. 
+                $('.forecast-cards').empty();
                 //Using this for loop to grab the neccessary data from the DAILY forcast data. Needs to start at 1 and end at 5 because the 0 place is today and we only need 5 days.
                 for (var i = 1; i < 6; i++) {
                     //Creating a new card for each day using [i]

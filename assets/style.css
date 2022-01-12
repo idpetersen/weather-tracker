@@ -15,7 +15,9 @@
 
 .forecast-header{
     padding-top: 1rem;
+    text-align: center;
 }
+
 
 card {
     padding: .5rem;
@@ -24,4 +26,12 @@ card {
     border-radius: 5px;
     background-color: darkblue;
     color: white;
+}
+#saved-searches{
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-button{
+    margin: 5px;
 }
