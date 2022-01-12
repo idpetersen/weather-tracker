@@ -74,8 +74,7 @@
 //REDO EVERYTHINGGGGGGGGGGGGGGGGGGGGGGGG
 var searchBtn = document.getElementById("#search-button");
 var cards = document.querySelectorAll("card");
-var savedSearches =
-  JSON.parse(window.localStorage.getItem("saved-search")) || [];
+// var savedSearches = JSON.parse(window.localStorage.getItem("saved-search")) || [];
 
 $(document).ready(function () {
   $("#search-button").on("click", function () {
@@ -131,9 +130,19 @@ $(document).ready(function () {
         $(".humidity").text("The current humidity is " + humidity + "%");
         $(".wind").text("The current wind speed is " + wind + "MPH");
         $(".uv-index").text("The current UV index is " + uvIndex);
+        $('.row-col-5').empty();
 
-        for(var i = 1; i < 6; i++){
-
+        for(var i = 1; i < 6; i ++) {
+          var card = $('<card>')
+          var forecastDate = $('<h4>').text(moment(data.daily[i].dt, 'X').format('MM/DD/YYYY'));
+          var forecastTemp = $('<p>').text('Temp: ' + data.daily[i].temp.max + ' ºF')
+          var forecastWind = $('<p>').text('Wind Speed: ' + data.daily[i].wind_speed+ ' MPH')
+          var forecastHumidity = $('<p>').text('Humidity: ' + data.daily[i].humidity + '%')
+          var forecastIcon = $('<img>').attr('src', `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`)
+  
+          card.append(forecastDate, forecastIcon, forecastTemp, forecastWind, forecastHumidity)
+          $('.forecast-cards').append(card);
+  
         }
       });
   }
