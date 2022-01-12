@@ -26,10 +26,10 @@
 //     var queryString = requestUrl + searchInputVal + '&units=imperial&appid=7b2be6a1e4a8ba837b735dd2308a21ce';
 //     fetch(queryString)
 //         .then(function (response) {
-//             if (response.status === 404 || response.status === 400) {
-//                 window.alert("Please check your spelling")
-//                 location.reload();
-//             } else return response.json();
+// if (response.status === 404 || response.status === 400) {
+//     window.alert("Please check your spelling")
+//     location.reload();
+// } else return response.json();
 //         })
 //         .then(function (data) {
 //             // console.log(data)
@@ -72,23 +72,69 @@
 //         });
 // });
 //REDO EVERYTHINGGGGGGGGGGGGGGGGGGGGGGGG
-var searchBtn = document.getElementById('#search-button');
-var cards = document.querySelectorAll('card');
-var apiKey = '7b2be6a1e4a8ba837b735dd2308a21ce';
-var currentWeatherUrl = `api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
-var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}&units=imperial`;
-var savedSearches = JSON.parse(window.localStorage.getItem('saved-search')) || [];
+var searchBtn = document.getElementById("#search-button");
+var cards = document.querySelectorAll("card");
+var savedSearches =
+  JSON.parse(window.localStorage.getItem("saved-search")) || [];
 
-$(document).ready(function(){
-    $('#search-button').on('click', function() {
-        var searchInput = $('#citySearch').val();
-        $('#citySearch').val('')
-        getlongandlat(searchInput)
-    })
+$(document).ready(function () {
+  $("#search-button").on("click", function () {
+    $('#weather-card').removeClass('hidden');
+    $('#days5').removeClass('hidden');
+    var searchInput = $("#citySearch").val();
+    $("#citySearch").val("");
+    getlongandlat(searchInput);
+  });
 
+  function getlongandlat(searchInput) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=7b2be6a1e4a8ba837b735dd2308a21ce`
+    )
+      .then(function (response) {
+        if (response.status === 404 || response.status === 400) {
+          window.alert("Please check your spelling");
+          location.reload();
+        } else return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        var lat = data.coord.lat;
+        var long = data.coord.lon;
+        var cityName = data.name;
 
+        $(".city-name").text(cityName);
+        oneCallForecast(lat, long);
+      });
+  }
 
+  function oneCallForecast(lat, long) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=7b2be6a1e4a8ba837b735dd2308a21ce&units=imperial`
+    )
+      .then(function (response) {
+        if (response.status === 404 || response.status === 400) {
+          window.alert("Please check your spelling");
+          location.reload();
+        } else return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        var currentTemp = data.current.temp;
+        var humidity = data.current.humidity;
+        var wind = data.current.wind_speed;
+        var uvIndex = data.current.uvi;
+        var weatherIcon = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
 
+        $("#weather-icon").attr("src", weatherIcon);
+        $(".current-temp").text(
+          "The current temperature is " + currentTemp + " \u00B0 F");
+        $(".humidity").text("The current humidity is " + humidity + "%");
+        $(".wind").text("The current wind speed is " + wind + "MPH");
+        $(".uv-index").text("The current UV index is " + uvIndex);
 
+        for(var i = 1; i < 6; i++){
 
-})
+        }
+      });
+  }
+});
