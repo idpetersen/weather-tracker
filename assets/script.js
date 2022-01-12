@@ -3,7 +3,7 @@ var cards = document.querySelectorAll("card");
 // var savedSearches = JSON.parse(window.localStorage.getItem("saved-search")) || [];
 //Waiting for imput and a click on the Search Button
 $(document).ready(function () {
-    $("#search-button").on("click", function () {
+    $('#search-button').on('click', function () {
         //showing forecast cards and current weather card
         $('#weather-card').removeClass('hidden');
         $('#card-hide').removeClass('hidden');
@@ -20,7 +20,7 @@ $(document).ready(function () {
             //Checking if response is 200 or not
             .then(function (response) {
                 if (response.status === 404 || response.status === 400) {
-                    window.alert("Please check your spelling");
+                    window.alert('Please check your spelling');
                     location.reload();
                 } else return response.json();
             })
@@ -30,8 +30,8 @@ $(document).ready(function () {
                 var long = data.coord.lon;
                 var cityName = data.name;
                 //putting city name and date in
-                $(".city-name").text(cityName);
-                $(".city-date").text(moment().format('MMMM Do YYYY'));
+                $('.city-name').text(cityName);
+                $('.city-date').text(moment().format('MMMM Do YYYY'));
                 //Longitude and Latitude have been stored in variables, now passing them through the one call function
                 oneCallForecast(lat, long);
             });
@@ -52,21 +52,21 @@ $(document).ready(function () {
                 var uvIndex = data.current.uvi;
                 var weatherIcon = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
                 //Changing text content for the current weather data card
-                $("#weather-icon").attr("src", weatherIcon);
-                $(".current-temp").text("The current temperature is " + currentTemp + " \u00B0 F");
-                $(".humidity").text("The current humidity is " + humidity + "%");
-                $(".wind").text("The current wind speed is " + wind + "MPH");
-                $(".uv-index").text("The current UV index is " + uvIndex);
+                $('#weather-icon').attr('src', weatherIcon);
+                $('.current-temp').text('The current temperature is ' + currentTemp + ' \u00B0 F');
+                $('.humidity').text('The current humidity is ' + humidity + '%');
+                $('.wind').text('The current wind speed is ' + wind + 'MPH');
+                $('.uv-index').text('The current UV index is ' + uvIndex);
                 //Using this for loop to grab the neccessary data from the DAILY forcast data. Needs to start at 1 and end at 5 because the 0 place is today and we only need 5 days.
                 for (var i = 1; i < 6; i++) {
                     //Creating a new card for each day using [i]
                     var forecastCard = $('<card>')
                     //This one was very irratating, you have to use the string 'x' to grab the current date for reformating. For some reason if you don't it tells you the date 1/19/1970
                     var forecastDate = $('<h4>').text(moment(data.daily[i].dt, 'X').format('MM/DD/YYYY'));
-                    var forecastTemp = $('<p>').text('Temp: ' + data.daily[i].temp.max + ' ºF')
-                    var forecastWind = $('<p>').text('Wind Speed: ' + data.daily[i].wind_speed + ' MPH')
-                    var forecastHumidity = $('<p>').text('Humidity: ' + data.daily[i].humidity + '%')
-                    var forecastIcon = $('<img>').attr('src', `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`)
+                    var forecastIcon = $('<img>').attr('src', `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`);
+                    var forecastTemp = $('<p>').text('Temp: ' + data.daily[i].temp.max + ' \u00B0 F');
+                    var forecastWind = $('<p>').text('Wind Speed: ' + data.daily[i].wind_speed + ' MPH');
+                    var forecastHumidity = $('<p>').text('Humidity: ' + data.daily[i].humidity + '%');
                     //Appending the variables to the new card created above ^^^^^^^
                     forecastCard.append(forecastDate, forecastIcon, forecastTemp, forecastWind, forecastHumidity)
                     //Appending the new cards to 'forecast-cards' in the HTML document
